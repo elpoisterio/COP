@@ -1,9 +1,16 @@
 function x = GaussNaive(A,b)
-
 [m,n] = size(A);
+x = zeros(1,n);
 if m~=n, error('Matrix A must be square'); end
 nb = n+1;
 Aug = [A b];
+% partial pivoting
+[big,i]=max(abs(Aug(k:n,k)));
+ipr=i+k-1;
+if ipr~=k
+Aug([k,ipr],:)=Aug([ipr,k],:);
+end
+
 % forward elimination
 for k = 1:n-1
 for i = k+1:n

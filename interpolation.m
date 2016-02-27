@@ -9,7 +9,7 @@ for i=1:n+1
    product = product*((v1-v(j))/(v(i)-v(j)));
    end
   end
-  summation += v(i)*prod;
+  summation += x(i)*prod;
   
 end
 var = summation ;
